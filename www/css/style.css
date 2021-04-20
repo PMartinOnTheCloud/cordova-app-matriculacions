@@ -30,6 +30,15 @@ div[id^="test-swipe-"] {
   padding: 20px;
 }
 
-ul#listedresults > li {
-  cursor: pointer;
+div[id="test-swipe-3"] label {
+  color: black;
 }
+
+div#test-swipe-3 > ul.collapsible > li {
+  background-color: white;
+}
+
+div#test-swipe-3 > ul.collapsible > li > div.collapsible-header {
+  font-weight: bold;
+}
+
