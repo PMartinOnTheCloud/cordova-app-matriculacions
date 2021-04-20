@@ -154,7 +154,7 @@ function displayUfsInfo() {
             let uf = info['modules'][module]['ufs'][ufs];
             let checkboxUf = `<p> <label> <input type="checkbox" /> <span> ${uf['code']}:  ${uf['name']} </span> </label> </p>`;
             $('div#test-swipe-3 > ul.collapsible > li:last-child').append(`<div class="collapsible-body">${checkboxUf}</div>`);
-            $('div#test-swipe-3 > ul.collapsible > li:last-child');
+            $()
         });
     });
 }
