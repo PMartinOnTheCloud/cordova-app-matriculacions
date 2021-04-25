@@ -16,22 +16,22 @@ function displayUfsInfo() {
                     "UF1": {
                         "code": "UF1",
                         "name": "Sintaxis del lenguaje",
-                        "value": 100
+                        "value": 120
                     },
                     "UF2": {
                         "code": "UF2",
                         "name": "Estructuras definidas por el programador",
-                        "value": 100
+                        "value": 80
                     },
                     "UF3": {
                         "code": "UF3",
                         "name": "DOM",
-                        "value": 100
+                        "value": 60
                     },
                     "UF4": {
                         "code": "UF4",
                         "name": "Comunicación asíncrona cliente-servidor",
-                        "value": 100
+                        "value": 150
                     }
                 }
             },
@@ -43,7 +43,7 @@ function displayUfsInfo() {
                     "UF1": {
                         "code": "UF1",
                         "name": "Desenvolupament web entorn servidor",
-                        "value": 100
+                        "value": 140
                     },
                     "UF2": {
                         "code": "UF2",
@@ -53,12 +53,12 @@ function displayUfsInfo() {
                     "UF3": {
                         "code": "UF3",
                         "name": "Accés a dades",
-                        "value": 100
+                        "value": 120
                     },
                     "UF4": {
                         "code": "UF4",
                         "name": "Serveis web",
-                        "value": 100
+                        "value": 60
                     }
                 }
             },
@@ -70,17 +70,17 @@ function displayUfsInfo() {
                     "UF1": {
                         "code": "UF1",
                         "name": "Servidor web i de transferència d'arxius",
-                        "value": 100
+                        "value": 40
                     },
                     "UF2": {
                         "code": "UF2",
                         "name": "Servidors d'aplicacions",
-                        "value": 100
+                        "value": 70
                     },
                     "UF3": {
                         "code": "UF3",
                         "name": "Desplegament",
-                        "value": 100
+                        "value": 80
                     },
                     "UF4": {
                         "code": "UF4",
@@ -97,20 +97,17 @@ function displayUfsInfo() {
                     "UF1": {
                         "code": "UF1",
                         "name": "Disseny de la interfície",
-                        "horas": "28",
-                        "value": 100
+                        "value": 80
                     },
                     "UF2": {
                         "code": "UF2",
                         "name": "Elements multimèdia: creació i integració",
-                        "horas": "19",
-                        "value": 100
+                        "value": 30
                     },
                     "UF3": {
                         "code": "UF3",
                         "name": "Accessibilitat i usabilitat web",
-                        "horas": "19",
-                        "value": 100
+                        "value": 50
                     }
                 }
             },
@@ -127,7 +124,7 @@ function displayUfsInfo() {
                     "UF2": {
                         "code": "UF2",
                         "name": "Apps Híbrides amb Cordova",
-                        "value": 100
+                        "value": 110
                     }
                 }
             },
@@ -139,7 +136,7 @@ function displayUfsInfo() {
                     "UF1": {
                         "code": "UF1",
                         "name": "Proyecto",
-                        "value": 100
+                        "value": 200
                     }
                 }
             }
@@ -154,7 +151,20 @@ function displayUfsInfo() {
             let uf = info['modules'][module]['ufs'][ufs];
             let checkboxUf = `<p> <label> <input type="checkbox" /> <span> ${uf['code']}:  ${uf['name']} </span> </label> </p>`;
             $('div#test-swipe-3 > ul.collapsible > li:last-child').append(`<div class="collapsible-body">${checkboxUf}</div>`);
-            $('').data(,);
-        });
+                
+            let checkboxSelector = 'div#test-swipe-3 > ul.collapsible > li:last-child > div.collapsible-body:last-child input[type="checkbox"]'
+
+            $(checkboxSelector).data("precio",uf["value"]);
+            $(checkboxSelector).click(addOrLowerPrice);
+            
+        });    
     });
+}
+
+function addOrLowerPrice() {
+    if (this.checked) {
+        console.log(`Add ${ $(this).data("precio") }`);
+    } else {
+        console.log(`Retrieve ${ $(this).data("precio") }`);
+    }
 }
