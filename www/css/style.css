@@ -46,3 +46,11 @@ div#test-swipe-3 {
   overflow: auto;
 }
 
+
+div#test-swipe-3 a#unlock {
+  display: none;
+}
+
+div#test-swipe-4 a#accept {
+  display: none;
+}

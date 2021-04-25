@@ -1,8 +1,9 @@
 $(document).ready( function () {
-    displayUfsInfo();
+    displayUfs();
+    displayPersonal();
 });
 
-function displayUfsInfo() {
+function displayUfs() {
     const info = {
         "code": "IC01",
         "name": "Desenvolupament d'aplicaciones Webs",
@@ -143,6 +144,11 @@ function displayUfsInfo() {
         }
     }
 
+    $('div#test-swipe-3 a#lock').click(lockUfs);
+    $('div#test-swipe-3 a#unlock').click(unlockUfs);
+
+    $('div#test-swipe-3 > ul.collapsible').before(`<ul> <li><strong>PREU MATRICULA:</strong> <span id="totalPrice">0 €<span></li> </ul>`);
+
     $('div#test-swipe-3 > ul.collapsible').collapsible();
 
     $.each(info['modules'], function(module) {
@@ -163,8 +169,49 @@ function displayUfsInfo() {
 
 function addOrLowerPrice() {
     if (this.checked) {
-        console.log(`Add ${ $(this).data("precio") }`);
+        changeTotalPrice($(this).data("precio"),"+");
     } else {
-        console.log(`Retrieve ${ $(this).data("precio") }`);
+        changeTotalPrice($(this).data("precio"),"-");
     }
+}
+
+function changeTotalPrice(precio, sign) {
+    if (sign == "+") {
+        $('div#test-swipe-3 > ul > li > span#totalPrice').text(getCurrentPrice() + precio + " €");
+    } else if (sign == "-") {
+        $('div#test-swipe-3 > ul > li > span#totalPrice').text(getCurrentPrice() - precio + " €");
+    }
+}
+
+function getCurrentPrice() {
+    return parseInt($('div#test-swipe-3 > ul > li > span#totalPrice').text());
+}
+
+
+function lockUfs() {
+    $('div#test-swipe-3 a#lock').css('display', "none");
+    $('div#test-swipe-3 a#unlock').css('display', "inline-block");
+    $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",true);
+}
+
+function unlockUfs() {
+    $('div#test-swipe-3 a#lock').css('display', "inline-block");
+    $('div#test-swipe-3 a#unlock').css('display', "none");
+    $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",false);
+}
+
+
+function displayPersonal() {
+    $('div#test-swipe-4 a#edit').click(editData);
+    $('div#test-swipe-4 a#accept').click(saveData);
+}
+
+function editData() {
+    $('div#test-swipe-4 a#accept').css('display', "inline-block");
+    $('div#test-swipe-4 a#edit').css('display', "none");
+}
+
+function saveData() {
+    $('div#test-swipe-4 a#edit').css('display', "inline-block");
+    $('div#test-swipe-4 a#accept').css('display', "none");
 }
