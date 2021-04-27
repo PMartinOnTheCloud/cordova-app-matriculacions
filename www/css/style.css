@@ -42,7 +42,7 @@ div#test-swipe-3 > ul.collapsible > li > div.collapsible-header {
   font-weight: bold;
 }
 
-div#test-swipe-3 {
+div#test-swipe-3, div#test-swipe-4 {
   overflow: auto;
 }
 
@@ -52,5 +52,10 @@ div#test-swipe-3 a#unlock {
 }
 
 div#test-swipe-4 a#accept {
+  display: none;
+}
+
+
+div#test-swipe-4 input {
   display: none;
 }

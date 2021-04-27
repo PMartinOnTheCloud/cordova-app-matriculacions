@@ -146,6 +146,7 @@ function displayUfs() {
 
     $('div#test-swipe-3 a#lock').click(lockUfs);
     $('div#test-swipe-3 a#unlock').click(unlockUfs);
+    $('div#test-swipe-3 a#selectAll').click(selectAll);
 
     $('div#test-swipe-3 > ul.collapsible').before(`<ul> <li><strong>PREU MATRICULA:</strong> <span id="totalPrice">0 €<span></li> </ul>`);
 
@@ -189,12 +190,14 @@ function getCurrentPrice() {
 
 
 function lockUfs() {
+    $('div#test-swipe-3 a#selectAll').attr("disabled",true);
     $('div#test-swipe-3 a#lock').css('display', "none");
     $('div#test-swipe-3 a#unlock').css('display', "inline-block");
     $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",true);
 }
 
 function unlockUfs() {
+    $('div#test-swipe-3 a#selectAll').attr("disabled",false);
     $('div#test-swipe-3 a#lock').css('display', "inline-block");
     $('div#test-swipe-3 a#unlock').css('display', "none");
     $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",false);
@@ -207,11 +210,49 @@ function displayPersonal() {
 }
 
 function editData() {
+
     $('div#test-swipe-4 a#accept').css('display', "inline-block");
     $('div#test-swipe-4 a#edit').css('display', "none");
+
+    $('div#test-swipe-4 span').css('display','none');
+
+    valorNom = $('div#test-swipe-4 div#nomAlumn > span').text();
+    valorCognom = $('div#test-swipe-4 div#cognomAlumn > span').text();
+    valorEdat = $('div#test-swipe-4 div#edatAlumn > span').text();
+    valorDNI = $('div#test-swipe-4 div#dniAlumn > span').text();
+    
+    $('div#test-swipe-4 div#nomAlumn > input').val(valorNom);
+    $('div#test-swipe-4 div#cognomAlumn > input').val(valorCognom);
+    $('div#test-swipe-4 div#edatAlumn > input').val(valorEdat);
+    $('div#test-swipe-4 div#dniAlumn > input').val(valorDNI);
+
+    $('div#test-swipe-4 input').css('display','inline-block');
+    
+
+
+
 }
 
 function saveData() {
     $('div#test-swipe-4 a#edit').css('display', "inline-block");
     $('div#test-swipe-4 a#accept').css('display', "none");
+
+    $('div#test-swipe-4 input').css('display','none');
+
+    valorNom = $('div#test-swipe-4 div#nomAlumn > input').val();
+    valorCognom = $('div#test-swipe-4 div#cognomAlumn > input').val();
+    valorEdat = $('div#test-swipe-4 div#edatAlumn > input').val();
+    valorDNI = $('div#test-swipe-4 div#dniAlumn > input').val();
+
+    $('div#test-swipe-4 div#nomAlumn > span').text(valorNom);
+    $('div#test-swipe-4 div#cognomAlumn > span').text(valorCognom);
+    $('div#test-swipe-4 div#edatAlumn > span').text(valorEdat);
+    $('div#test-swipe-4 div#dniAlumn > span').text(valorDNI);
+
+    $('div#test-swipe-4 span').css('display','inline-block');
+
+}
+
+function selectAll() {
+    $('div#test-swipe-4 input[type="checkbox"]').click();
 }
