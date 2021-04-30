@@ -147,6 +147,7 @@ function displayUfs() {
     $('div#test-swipe-3 a#lock').click(lockUfs);
     $('div#test-swipe-3 a#unlock').click(unlockUfs);
     $('div#test-swipe-3 a#selectAll').click(selectAll);
+    $('div#test-swipe-3 a#deselectAll').click(deselectAll);
 
     $('div#test-swipe-3 > ul.collapsible').before(`<ul> <li><strong>PREU MATRICULA:</strong> <span id="totalPrice">0 €<span></li> </ul>`);
 
@@ -254,5 +255,17 @@ function saveData() {
 }
 
 function selectAll() {
-    $('div#test-swipe-4 input[type="checkbox"]').click();
+    $('div#test-swipe-3 input[type="checkbox"]').each(function() {
+        if (!this.checked) {
+            $(this).click();
+        }
+    });
+}
+
+function deselectAll() {
+    $('div#test-swipe-3 input[type="checkbox"]').each(function() {
+        if (this.checked) {
+            $(this).click();
+        }
+    });
 }
