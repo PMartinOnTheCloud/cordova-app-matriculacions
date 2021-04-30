@@ -192,6 +192,7 @@ function getCurrentPrice() {
 
 function lockUfs() {
     $('div#test-swipe-3 a#selectAll').attr("disabled",true);
+    $('div#test-swipe-3 a#deselectAll').attr("disabled",true);
     $('div#test-swipe-3 a#lock').css('display', "none");
     $('div#test-swipe-3 a#unlock').css('display', "inline-block");
     $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",true);
@@ -199,6 +200,7 @@ function lockUfs() {
 
 function unlockUfs() {
     $('div#test-swipe-3 a#selectAll').attr("disabled",false);
+    $('div#test-swipe-3 a#deselectAll').attr("disabled",false);
     $('div#test-swipe-3 a#lock').css('display', "inline-block");
     $('div#test-swipe-3 a#unlock').css('display', "none");
     $('div#test-swipe-3 input[type="checkbox"]').attr("disabled",false);
