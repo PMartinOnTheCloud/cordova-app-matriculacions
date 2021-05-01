@@ -1,6 +1,7 @@
 $(document).ready( function () {
     displayUfs();
     displayPersonal();
+    displayProfileReqs();
 });
 
 function displayUfs() {
@@ -270,4 +271,9 @@ function deselectAll() {
             $(this).click();
         }
     });
+}
+
+
+function displayProfileReqs() {
+    $('div#test-swipe-2 select').formSelect();
 }
