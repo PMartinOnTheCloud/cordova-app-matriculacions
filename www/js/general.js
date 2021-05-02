@@ -275,5 +275,28 @@ function deselectAll() {
 
 
 function displayProfileReqs() {
+    console.log("hola");
     $('div#test-swipe-2 select').formSelect();
+    $('div#test-swipe-2 select').change(function() {
+        optionValue = $(this).children("option:selected").val();
+        displayNeededDocs(optionValue);
+    });
+
+
+}
+
+function displayNeededDocs(optionValue) {
+
+    /*
+    dniElement = '<li></li>';
+
+    if (option == "standard") {
+
+    } else if (option == "monoparental") {
+
+    } else if (option == "mas28") {
+
+    }
+    */
+   
 }
